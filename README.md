@@ -1,3 +1,3 @@
-# web-dev-template
+# Weather App
 
-A template repository for web development projects
+A weather app that makes use of asynchronous functions
