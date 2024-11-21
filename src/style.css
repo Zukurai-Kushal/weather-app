@@ -1,0 +1,275 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Titan+One&family=Varela+Round&display=swap');
+
+:root{
+    --color-highlight: #fdba74;
+    --color-background-dark: #000000c0;
+    --color-background-light: rgba(255, 255, 255, 0.7);
+}
+
+body{
+    background-color: #ffedd5;
+    background-image: url("data:image/svg+xml,%3Csvg width='52' height='26' viewBox='0 0 52 26' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23f97316' fill-opacity='0.35'%3E%3Cpath d='M10 10c0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6h2c0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4v2c-3.314 0-6-2.686-6-6 0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6zm25.464-1.95l8.486 8.486-1.414 1.414-8.486-8.486 1.414-1.414z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+#content{
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#nav-container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin: 15px;
+}
+
+#search-container{
+    width: 60ch;
+}
+
+#search-container form{
+    min-width: 10ch;
+    max-width: 80ch;
+    display: grid;
+    gap: 10px;
+    grid-template-columns: 1fr max-content;
+    align-items: center;
+}
+
+#search-container input[type=text]{
+    padding: 10px 15px;
+    font-size: 18px;
+    border: none;
+    border-radius: 50px;
+}
+
+#search-container button {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    padding: 6px 10px;
+    background: white;
+    font-size: 17px;
+    border: none;
+    cursor: pointer;
+}
+
+#search-container button:hover {
+    background: var(--color-highlight);
+}
+
+#current-conditions-container{
+    display: flex;
+    width: 100ch;
+}
+
+.loader {
+    border: 10px solid white;
+    border-top: 10px solid var(--color-highlight);
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    animation: spin 1s linear infinite;
+    margin: 100px auto;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+#location-container{
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+    font-family: "Varela Round", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    gap: 10px;
+    background-color: var(--color-background-light);
+    padding: 10px;
+    border-radius: 10px;
+}
+
+#content > div.flex{
+    width: 100%;
+    justify-content: center;
+}
+
+#weather-display-container{
+    width: 550px;
+    display: grid;
+    row-gap: 20px;
+}
+
+#temperature-unit-container{
+    flex: none;
+    display: flex;
+    background-color: white;
+    border-radius: 10px;
+    padding: 10px 0px;
+}
+
+.celsius-button, .fahrenheit-button{
+    padding: 0px 10px;
+    font-weight: 300;
+    transition: 0.1s;
+    cursor: pointer;
+}
+
+.celsius-button{
+    border-right: 1px solid black;
+}
+
+#location-container img{
+    width: 1em;
+}
+
+.bold{
+    font-weight: 600;
+}
+
+.flex{
+    display: flex;
+}
+
+#conditions-container .weather-icon{
+    display: grid;
+    place-content: center;
+}
+
+#conditions-container .weather-icon img{
+    width: 1.5em;
+}
+
+#conditions-container{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: var(--color-background-dark);
+    border-radius: 10px;
+    color: white;
+}
+
+#temperature-condition-container .date-container{
+    font-size: 1.2em;
+    font-weight: 300;
+}
+
+#temperature-condition-container .current-condition{
+    font-size: 3em;
+    font-weight: 500;
+    font-family: "Titan One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+#conditions-container .weather-description{
+    font-family: "Varela Round", serif;
+    font-weight: 400;
+    font-style: normal;
+    margin-top: auto;
+}
+
+#temperature-condition-container .temperature-range-container{
+    display: flex;
+    gap: 15px;
+    font-family: "Varela Round", serif;
+    font-weight: 400;
+    font-size: 0.9em;
+    font-style: normal;
+}
+
+#secondary-conditions-container{
+    display: flex;
+    text-align: right;
+    flex-direction: column;
+    align-items: end;
+    font-size: 0.95rem;
+    font-weight: 300;
+}
+
+#wallpaper {
+    z-index: -1;
+    position: fixed;
+    object-fit: cover;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+}
+
+#hourly-forecast-container{
+    background-color: var(--color-background-light);
+    border-radius: 10px;
+    padding: 10px;
+    width: inherit;
+    max-width: 95vw;
+}
+
+#hourly-forecast-container .scroll-container{
+    display: flex;
+    gap: 10px;
+    overflow: auto;
+    white-space: nowrap;
+}
+
+.heading{
+    font-family: "Varela Round", serif;
+    font-weight: 400;
+    font-style: normal;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.hour-forecast-container{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: var(--color-background-dark);
+    color: white;
+    border-radius: 10px;
+    padding: 10px;
+    gap: 10px;
+}
+
+#ten-day-forecast-container{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.day-forecast-container.highlight{
+    background-color: var(--color-background-dark);
+    color: white;
+}
+
+.day-forecast-container{
+    display: grid;
+    grid-template-columns: 2fr 1fr auto;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 10px;
+    border-radius: 10px;
+    background-color: var(--color-background-light);
+    cursor: pointer;
+}
+
+.day-forecast-container .temperature-container{
+    font-weight: 300;
+}
+
