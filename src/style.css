@@ -2,6 +2,7 @@
 
 :root{
     --color-highlight: #fdba74;
+    --color-alert: #f87171;
     --color-background-dark: #000000c0;
     --color-background-light: rgba(255, 255, 255, 0.7);
 }
@@ -273,3 +274,23 @@ body{
     font-weight: 300;
 }
 
+#alert-container{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.alert{
+    padding: 10px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: var(--color-alert);
+    font-weight: 500;
+    font-size: 1.2em;
+}
+
+.alert img{
+    width: 1.5em;
+}

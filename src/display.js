@@ -4,6 +4,7 @@ import { createWeatherIcon, displayWallpaper } from "./animation";
 
 import search_icon from "./assets/icons/magnify.svg";
 import location_icon from "./assets/icons/location-icon.svg";
+import alert_icon from "./assets/icons/alert.svg";
 
 const navContainer = document.getElementById("nav-container");
 const weatherDisplayContainer = document.getElementById(
@@ -159,8 +160,33 @@ function displayWeather(weatherData) {
   weatherData.currentConditions["tempmax"] = weatherData.days[0].tempmax;
   weatherData.currentConditions["tempmin"] = weatherData.days[0].tempmin;
   displayConditions(weatherData.currentConditions);
+  displayAlert(weatherData.alerts);
   displayHourlyForecast(weatherData.days[0].hours);
   displayTenDayForecast(weatherData.days);
+}
+
+function displayAlert(alerts) {
+  console.log(alerts);
+  if (alerts === undefined || alerts.length == 0) {
+    return;
+  }
+  const alertContainer = createDOMElement({
+    type: "div",
+    id: "alert-container",
+  });
+  weatherDisplayContainer.appendChild(alertContainer);
+  for (const alert of alerts) {
+    alertContainer.appendChild(createAlertElement(alert));
+  }
+}
+
+function createAlertElement(alert) {
+  const alertElement = createDOMElement({ type: "div", classList: ["alert"] });
+  alertElement.appendChild(createImgContainer(alert_icon, "Alert"));
+  alertElement.appendChild(
+    createDOMElement({ type: "div", text: alert.event }),
+  );
+  return alertElement;
 }
 
 function displayLocation(location) {
