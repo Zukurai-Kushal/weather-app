@@ -65,8 +65,13 @@ export function displayWallpaper(condition) {
   if (wallpaperContainer === null) {
     wallpaperContainer = document.createElement("div");
     wallpaperContainer.id = "wallpaper-container";
+    wallpaperContainer.setAttribute("condition", "none");
     document.body.appendChild(wallpaperContainer);
   }
+  if (wallpaperContainer.getAttribute("condition") === condition) {
+    return;
+  }
+  wallpaperContainer.setAttribute("condition", condition);
   wallpaperContainer.innerHTML = "";
   const videoContainer = document.createElement("video");
   videoContainer.setAttribute("autoplay", "");
