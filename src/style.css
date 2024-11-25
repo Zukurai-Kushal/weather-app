@@ -272,6 +272,12 @@ body{
 
 .day-forecast-container .temperature-container{
     font-weight: 300;
+    width: 70px;
+    text-align: end;
+}
+
+.hour-forecast-container .temperature-container{
+    width: 50px;
 }
 
 #alert-container{

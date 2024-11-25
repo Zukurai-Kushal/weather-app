@@ -166,7 +166,6 @@ function displayWeather(weatherData) {
 }
 
 function displayAlert(alerts) {
-  console.log(alerts);
   if (alerts === undefined || alerts.length == 0) {
     return;
   }
