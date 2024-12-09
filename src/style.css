@@ -290,11 +290,28 @@ body{
     padding: 10px;
     border-radius: 10px;
     display: flex;
-    align-items: center;
+    flex-direction: column;
     gap: 10px;
     background-color: var(--color-alert);
     font-weight: 500;
+    cursor: pointer;
+}
+
+.alert-heading{
+    display: flex;
+    gap: 10px;
+    align-items: center;
     font-size: 1.2em;
+}
+
+.alert-description{
+    display: none;
+    max-inline-size: 66ch;
+    line-height: 1.65;
+}
+
+.alert-description.active{
+    display: block;
 }
 
 .alert img{

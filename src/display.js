@@ -181,10 +181,24 @@ function displayAlert(alerts) {
 
 function createAlertElement(alert) {
   const alertElement = createDOMElement({ type: "div", classList: ["alert"] });
-  alertElement.appendChild(createImgContainer(alert_icon, "Alert"));
-  alertElement.appendChild(
+  const alertHeading = createDOMElement({
+    type: "div",
+    classList: ["alert-heading"],
+  });
+  alertElement.appendChild(alertHeading);
+  alertHeading.appendChild(createImgContainer(alert_icon, "Alert"));
+  alertHeading.appendChild(
     createDOMElement({ type: "div", text: alert.event }),
   );
+  const alertDescription = createDOMElement({
+    type: "div",
+    classList: ["alert-description"],
+    text: alert.description,
+  });
+  alertElement.appendChild(alertDescription);
+  alertElement.onclick = () => {
+    alertDescription.classList.toggle("active");
+  };
   return alertElement;
 }
 
