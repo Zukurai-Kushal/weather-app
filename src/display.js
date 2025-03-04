@@ -162,7 +162,15 @@ function displayWeather(weatherData) {
   displayConditions(weatherData.currentConditions);
   displayAlert(weatherData.alerts);
   displayHourlyForecast(weatherData.days[0].hours);
+  scrollHourlyForecast(weatherData.currentConditions.datetime);
   displayTenDayForecast(weatherData.days);
+}
+
+function scrollHourlyForecast(time) {
+  const hour = format(new Date(`December 17, 1995 ${time}`), "H");
+  document
+    .querySelector("#hourly-forecast-container .scroll-container")
+    .scroll(hour * 80, 0); //Each hour container is 80px wide
 }
 
 function displayAlert(alerts) {
