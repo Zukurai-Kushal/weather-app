@@ -13,7 +13,7 @@
 - Weather Alerts: Provides alerts during severe weather conditions, detailing the situation.
 - Responsive Design: Suitable for mobile screens.
 
-## What did I learn from the Project
+## What I learned from the Project
 
 - Asynchronous code (Async and wait)
 - Working with APIs to fetch real-time weather data.
