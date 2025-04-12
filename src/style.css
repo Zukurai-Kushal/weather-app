@@ -116,6 +116,10 @@ body{
     row-gap: 20px;
 }
 
+#location-container, #conditions-container, #hourly-forecast-container, .day-forecast-container{
+    backdrop-filter: blur(0.1px);
+}
+
 #temperature-unit-container{
     flex: none;
     display: flex;
